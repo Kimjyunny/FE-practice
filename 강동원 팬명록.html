@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,12 +12,11 @@
         crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+       
  
         <title>강동원 팬명록 만들기</title>
 
-</head>
-
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style>
 
     *{font-family: 'Gaegu', cursive;
@@ -60,10 +61,25 @@
         margin-bottom: 20px;
     }
 </style>
-
+    
+    <script>
+    $(document).ready(function(){
+        $.ajax({
+    type: "GET",
+    url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+    data: {},
+    success: function(response){
+        $('#temp').text(response['temp'])
+            }
+        })
+    });     
+    </script>    
+    
+</head>
 <body>
     <div class="title">
         <h1>강동원 팬명록</h1>
+        <p>현재기온: <span id="temp">36</span>도</p>
     </div>
     
     <div class="box">
@@ -138,3 +154,4 @@
         
     
 </body>
+</
